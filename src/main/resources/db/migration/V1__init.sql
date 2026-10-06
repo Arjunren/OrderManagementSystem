@@ -12,7 +12,7 @@ CREATE UNIQUE INDEX users_email_lower_uq ON users (LOWER(email));
 
 CREATE TABLE auth_tokens (
     id BIGSERIAL PRIMARY KEY,
-    token_hash CHAR(64) NOT NULL UNIQUE,
+    token_hash VARCHAR(64) NOT NULL UNIQUE,
     user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     expires_at TIMESTAMPTZ NOT NULL,
     revoked_at TIMESTAMPTZ,
